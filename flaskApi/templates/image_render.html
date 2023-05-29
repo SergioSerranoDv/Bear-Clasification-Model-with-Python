@@ -10,16 +10,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Rendered Image</h1>
-        <img class="coverImg" src="{{ img }}" width="600" height="400"/>
         <h1>Inference</h1>
-        <p>{{ inference }}</p>
-        <p> {{ data[0:1] }} </p>
-        <table>
-        <thead>
+        <img class="coverImg" src="{{ img }}" width="600" height="400"/>
+        <table class="tableOsos">
+        <thead >
             <tr>
                 <th>Specie</th>
-                <th>Weigh</th>
+                <th>Weigh (kg)</th>
+                <th>Body Length (cm)</th>
+                <th>Life expectancy (Years)</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +26,8 @@
             <tr>
                 <td>{{ bear[0] }}</td>
                 <td>{{ bear[1] }}</td>
+                <td>{{ bear[2] }}</td>
+                <td>{{ bear[3] }}</td>
             </tr>
             {% endfor %}
         </tbody>

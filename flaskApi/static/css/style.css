@@ -1,25 +1,57 @@
+:root{
+  color-scheme: light dark;
+}
+
 body{
     display: flex;
     justify-content: center;
     margin: 0px;
-
-
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1{
     display: flex;
     justify-content: center;
-    margin: 30px 0px;
+    font-size: 40px;
+    margin: 100px 0px 50px 0px
+}
+thead{
+    background: rgb(115, 19, 206, 0.6);
+}
+tr{
+    display: flex;
+    justify-content: space-between;
+}
+th{
+    width: 200px;
+    text-align: left;
+    margin: 4px 2px 4px 2px;
+    padding: 8px;
+}
+td{
+    text-align: left;
+    width: 200px;
+    margin: 4px 2px 4px 2px;
+    padding: 8px;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hidden{
+    position: absolute;
+    left: -99999px;
+}
 .coverImg{
-    border-radius: 12px;
     box-shadow: rgba(231, 231, 231, 0.8);
 }
 .formUploadImage{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px;
 }
 input{
     display: flex;
@@ -31,15 +63,62 @@ input{
     margin: 30px;
 }
 .buttonSubmit{
-    margin: 10px;
-    width: 400px;
-    background: rgb(115, 116, 206,0.85);
+    margin: 20px;
+    width: 100%;
+    font-size: 20px;
+    background: rgb(115, 19, 206, 0.6);
     color: white;
     border: none;
-    padding: 4px;
-    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
 }
-:root{
-  color-scheme: light dark;
+.buttonSubmit:hover{
+    background: transparent;
+    border: 1px solid rgb(115,19,206, 06);
+}
+.drop-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #232b2b;
+    width: 1100px;
+    height: 200px;
+    border: 1px dashed rgb(255,255,255,0.8);
+    margin-top: 10px;
+}
+.drop-area:hover{
+    cursor: pointer;
+}
+.drop-area.active{
+    background-color:  rgb(115, 19, 206, 0.6);
+    color: black;
+    border: 2px dashed rgb(255,255,255,0.8);
+}
+.file-container{
+    display: flex;
+    width: 1050px;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: solid 1px #ddd;
+    margin: 0px 0px 10px 0px;
+}
+
+#preview{
+    margin-top: 10px;
+}
+.status-text{
+    padding: 0 10px ;
+}
+.success{
+    color: #52ad5a;
+}
+.failure{
+    color: #ff0000;
+}
+
+.tableOsos{
+    width: 800px;
+    margin: 20px;
 }
 
