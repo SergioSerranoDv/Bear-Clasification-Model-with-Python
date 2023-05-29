@@ -44,7 +44,7 @@ def predict_class(path_model, image):
     elif clase == "4":
         class_name = "malayo"
     else:
-        class_name = "america Black"
+        class_name = "americanBlack"
     return class_name
 
 @app.route('/classification', methods = ['GET','POST'])
