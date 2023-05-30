@@ -11,14 +11,18 @@
 <body>
     <div class="container">
         <h1> Identifies the class with IA</h1>
+        <img class="coverImg"  src="/static/bearsImage.png" width="800" height="600"/>
         <form action="http://localhost:5000/classification" class="formUploadImage" method="POST" enctype="multipart/form-data">
-            <img class="coverImg"  src="/static/bears.jpg" width="600" height="400"/>
-            <div class="inputFile">
-                <label for="file">Select an image</label>
-                <input type="file" id="file" name="file" placeholder="Upload an image"/>
-            </div>
-            <button class="buttonSubmit" type="submit">Send now</button>
+                <div class="drop-area">
+                    <h2>Drag and drop your image</h2>
+                    <img src="/static/draganddrop.png"/>
+                    <input class="hidden" type="file" id="file" name="file" hidden multiple />
+                </div>
+                <button class="buttonSubmit" type="submit">Send</button>
         </form>
+        <div id="preview">
+        </div>
     </div>
+    <script src="{{url_for('static', filename='index.js')}}"></script>
 </body>
 </html>

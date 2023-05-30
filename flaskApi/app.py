@@ -1,11 +1,8 @@
-from flask import Flask, render_template, request, jsonify
-import tensorflow as tf
+from flask import Flask, render_template, request
 from tensorflow import keras
 import cv2
 import numpy as np
 import os
-import psycopg2
-import config
 from config import create_connection
 app = Flask(__name__)
 
@@ -18,10 +15,6 @@ def upload_file():  # put application's code here
     return render_template('main.html')
 
 connection = create_connection()
-if connection is None:
-    print("Error to connect with postgreSql")
-else:
-    print("successfull connection")
 
 def get_info(class_name):
     cursor = connection.cursor()
@@ -40,10 +33,18 @@ def predict_class(path_model, image):
     result = model.predict(image_expanded)
     clase = str(int(np.argmax(result)))
 
-    if clase == "1":
-        class_name = "spectacle"
-    else:
+    if clase == "0":
         class_name = "panda"
+    elif clase == "1":
+        class_name = "spectacle"
+    elif clase == "2":
+        class_name = "polar"
+    elif clase == "3":
+        class_name = "pardo"
+    elif clase == "4":
+        class_name = "malayo"
+    else:
+        class_name = "americanBlack"
     return class_name
 
 @app.route('/classification', methods = ['GET','POST'])
@@ -53,7 +54,7 @@ def execute_classification():
         file_name = file.filename
         file.save(os.path.join("static" , file_name))
         image = os.path.join(app.config['UPLOAD'], file_name)
-        path_model = "/Users/sergi/Documents/ososModel.h5"
+        path_model = "/Users/sergi/Documents/bearSorter.h5"
         class_name = predict_class(path_model, image)
         data = get_info(class_name)
         return render_template('image_render.html', inference=class_name, img=image, data=data)
