@@ -3,7 +3,7 @@ from tensorflow import keras
 import cv2
 import numpy as np
 import os
-from config import create_connection
+from flaskApi.config import create_connection
 app = Flask(__name__)
 
 upload_folder = "static"
@@ -52,7 +52,7 @@ def execute_classification():
     if request.method == 'POST':
         file = request.files['file']
         file_name = file.filename
-        file.save(os.path.join("../static", file_name))
+        file.save(os.path.join("static", file_name))
         image = os.path.join(app.config['UPLOAD'], file_name)
         path_model = "/Users/sergi/Documents/bearSorter.h5"
         class_name = predict_class(path_model, image)
