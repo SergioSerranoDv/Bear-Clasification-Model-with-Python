@@ -54,7 +54,7 @@ def execute_classification():
         file_name = file.filename
         file.save(os.path.join("static", file_name))
         image = os.path.join(app.config['UPLOAD'], file_name)
-        path_model = "/Users/sergi/Documents/bearSorter.h5"
+        path_model = os.path.join("static", "bearSorter.h5")
         class_name = predict_class(path_model, image)
         data = get_info(class_name)
         return render_template('image_render.html', inference=class_name, img=image, data=data)
