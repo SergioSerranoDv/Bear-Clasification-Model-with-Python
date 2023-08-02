@@ -1,1 +1,1 @@
-# Classification-Model
+# Beer clasification model
